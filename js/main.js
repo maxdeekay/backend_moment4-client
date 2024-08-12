@@ -3,20 +3,8 @@
 const baseURL = "http://127.0.0.1:3000";
 
 window.onload = () => {
-    const login = document.getElementById("login-container");
-    const signup = document.getElementById("signup-container");
-    const signupLink = document.getElementById("signup-shortlink");
-    const loginLink = document.getElementById("login-shortlink");
-
-    signupLink.onclick = () => {
-        login.style.display = "none";
-        signup.style.display = "flex";
-    };
-
-    loginLink.onclick = () => {
-        login.style.display = "flex";
-        signup.style.display = "none";
-    };
+    document.getElementById("signup-shortlink").onclick = switchForm;
+    document.getElementById("login-shortlink").onclick = switchForm;
 
     const loginForm = document.getElementById("login-form");
     const signupForm = document.getElementById("signup-form");
@@ -55,20 +43,19 @@ async function loginUser(username, password) {
         })
     });
 
-    if(!response.ok) throw new Error("Login failed");
+    if (response.ok) {
+        const data = await response.json();
+        // save JWT token in localStorage for later use
+        localStorage.setItem("token", data.response.token);
+        window.location.href="admin.html";
+    } else {
+        const message = document.getElementById("message");
+        clearMessage(message);
 
-    const data = await response.json();
-
-    if(data.error) {
-        // failed login
-        console.log("error: " + data.error);
-        return;
+        message.classList.add("bad");
+        message.innerHTML = "Wrong username or password";
+        message.style.display = "flex";
     }
-
-    // save JWT token in localStorage for later use
-    localStorage.setItem("token", data.response.token);
-
-    window.location.href="admin.html";
 }
 
 async function registerUser(username, password) {
@@ -83,10 +70,35 @@ async function registerUser(username, password) {
             password: password
         })
     });
+    const data = await response.json();
+    const message = document.getElementById("message");
+    clearMessage(message);
 
     if(response.ok) {
-        console.log("user created");
+        switchForm();
+        message.classList.add("good");
+        message.innerHTML = "User created!";
+        message.style.display = "flex";
     } else {
-        console.log("error creating user");
+        message.classList.add("bad");
+        message.innerHTML = data.error;
+        message.style.display = "flex";
     }
+}
+
+function switchForm() {
+    const login = document.getElementById("login-container");
+    const signup = document.getElementById("signup-container");
+    const message = document.getElementById("message");
+    clearMessage(message);
+
+    const isLoginVisible = login.style.display !== "none";
+    login.style.display = isLoginVisible ? "none" : "flex";
+    signup.style.display = isLoginVisible ? "flex" : "none";
+}
+
+function clearMessage(element) {
+    element.classList.remove("good");
+    element.classList.remove("bad");
+    element.innerHTML = "";
 }

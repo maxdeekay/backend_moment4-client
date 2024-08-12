@@ -139,3 +139,19 @@ header>div>a:hover {
     cursor: pointer;
     color: rgb(255, 173, 96);
 }
+
+#message {
+    width: 250px;
+    height: 60px;
+    border-radius: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    display: none;
+}
+
+.good { background-color: rgba(140, 206, 140, 0.5); }
+.bad { background-color: rgba(226, 151, 151, 0.5); }
