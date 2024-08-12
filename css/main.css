@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    background-color: rgb(30, 30, 40);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    background-color: rgb(56, 56, 71);
+    width: 600px;
+    height: 350px;
+    border-radius: 30px;
+    border: 2px solid rgb(255, 173, 96);
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.5);
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.container>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+}
+
+.container>form>div>input[type=text], .container>form>div>input[type=password] {
+    background-color: rgb(56, 56, 71);
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    padding: 5px 0px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: 95%;
+}
+
+.container>form>div>input[type=text]:focus, .container>form>div>input[type=password]:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(255, 173, 96);
+}
+
+input[type=submit] {
+    height: 35px;
+    width: 100px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Lato;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgb(199, 199, 199);
+}
+
+#login-container {
+    display: flex;
+}
+
+#signup-container {
+    display: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 30px 10px 30px;
+    height: 60px;
+}
+
+header>div {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+header>div>a:hover {
+    cursor: pointer;
+    color: rgb(255, 173, 96);
+}
+
+.shortlinks {
+    display: flex;
+    gap: 5px;
+}
+
+.shortlinks>a {
+    color: rgb(255, 173, 96)
+}
+
+.shortlinks>a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.inner-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.inner-container>h2 { color: rgb(255, 173, 96) }
+.inner-container>p { font-weight: bold; }
+
+#logout-button {
+    font-weight: bold;
+    font-size: 20px;;
+}
+
+#logout-button:hover {
+    cursor: pointer;
+    color: rgb(255, 173, 96);
+}

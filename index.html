@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>welcome</h1>
+    </header>
+    <main>
+        <div id="login-container" class="container">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <input type="submit" value="Login">
+            </form>
+
+            <div class="shortlinks">
+                <p>Don't have an account?</p>
+                <a id="signup-shortlink">Sign up</a>
+            </div>
+        </div>
+
+        <div id="signup-container" class="container">
+            <h2>Sign up</h2>
+            <form id="signup-form">
+                <div>
+                    <label for="newUsername">Username</label>
+                    <input type="text" id="newUsername" name="username">
+                </div>
+                <div>
+                    <label for="newPassword">Password</label>
+                    <input type="text" id="newPassword" name="password">
+                </div>
+                <input type="submit" value="Sign up">
+            </form>
+
+            <div class="shortlinks">
+                <p>Already have an account?</p>
+                <a id="login-shortlink">Login</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
