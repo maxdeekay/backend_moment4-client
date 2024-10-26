@@ -1,6 +1,6 @@
 "use strict";
 
-const baseURL = "http://127.0.0.1:3000";
+const baseURL = "https://backend-moment4-1-p9uh.onrender.com";
 
 window.onload = () => {
     document.getElementById("signup-shortlink").onclick = switchForm;

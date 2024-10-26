@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = async () => {
-    const url = "http://127.0.0.1:3000/api/admin";
+    const url = "https://backend-moment4-1-p9uh.onrender.com/api/admin";
     const token = localStorage.getItem("token");
 
     const response = await fetch(url, {
